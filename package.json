@@ -1,0 +1,50 @@
+{
+  "name": "flatgauge-demo",
+  "title": "flatgauge-demo",
+  "description": "A demo project of es6/System.js/gulp/svg package",
+  "version": "0.0.1",
+  "main": "main.js",
+  "format": "es6",
+  "registry": "github",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/epsilony/flatgauge-demo.git"
+  },
+  "keywords": [
+    "es6",
+    "demo",
+    "System.js",
+    "svg",
+    "browser"
+  ],
+  "scripts": {
+    "start": "gulp"
+  },
+  "jspm": {
+    "directories": {
+      "lib": "lib"
+    },
+    "dependencies": {
+      "clean-css": "npm:clean-css@^3.3.6",
+      "color-parser": "npm:color-parser@^0.1.0",
+      "css": "systemjs/plugin-css@^0.1.13",
+      "jquery": "components/jquery@^2.1.4",
+      "lato-font": "npm:lato-font@^1.1.1",
+      "lodash": "npm:lodash@^3.10.0",
+      "mathjs": "npm:mathjs@^1.7.1",
+      "snapsvg": "npm:snapsvg@^0.4.0",
+      "text": "systemjs/plugin-text@^0.0.2"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.1.13",
+      "babel-runtime": "npm:babel-runtime@^5.1.13",
+      "core-js": "npm:core-js@^0.9.4"
+    }
+  },
+  "devDependencies": {
+    "browser-sync": "^2.8.0",
+    "gulp": "^3.9.0",
+    "gulp-watch": "^4.3.3",
+    "shelljs": "^0.5.1"
+  }
+}

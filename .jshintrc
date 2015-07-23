@@ -1,0 +1,17 @@
+{
+  "globalstrict": true,
+  "node": true,
+  "globals": {
+    "angular": true,
+    "define": false,
+    "describe": false,
+    "it": false,
+    "expect": false,
+    "beforeEach": false,
+    "afterEach": false,
+    "module": false,
+    "inject": false,
+    "BMap": false
+  },
+  "esnext": true
+}

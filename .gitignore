@@ -1,0 +1,11 @@
+/node_modules
+/jspm_packages
+/dist
+.DS_Store
+.idea
+*.swp
+.project
+*~
+config.js
+.c9/
+*.log

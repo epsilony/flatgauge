@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>test</title>
+  <script src="jspm_packages/system.js"></script>
+  <script src="config.js"></script>
+  <!--<script src="dist/flatgauge.js"></script>-->
+</head>
+
+<style>
+  .flat-gauge {
+    display: inline-block;
+    width: 200px;
+  }
+</style>
+
+<body>
+  <script>
+    var m, gauges;
+    System.import('lib/main').then(function(main) {
+      m = main;
+      gauges = $(".flat-gauge");
+      for (var i = 0; i < 50; i++) {
+        gauges.after('<div class="flat-gauge"></div>');
+      }
+      gauges = $(".flat-gauge");
+      gauges.each(function(index, g) {
+        var t = new m.FlatGauge(g);
+        g.gauge = t;
+      })
+      setInterval(function() {
+        gauges.each(function(index, g) {
+          g.gauge.value = mathjs.randomInt(1000);
+        });
+      }, 500);
+    });
+  </script>
+  <div class="flat-gauge"></div>
+
+</body>
+
+</html>
