@@ -26,7 +26,7 @@
       }
       gauges = $(".flat-gauge");
       gauges.each(function(index, g) {
-        var t = new m.FlatGauge(g);
+        var t = new m.flatGauge(g);
         g.gauge = t;
       })
       setInterval(function() {
