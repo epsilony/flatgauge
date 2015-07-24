@@ -11,14 +11,14 @@ gulp.task('bundle', function() {
   buildBundle();
 });
 
-gulp.task('watch', ['bundle'], function() {
+gulp.task('watch', function() {
 
   browserSync.init({
     server: "."
   });
 
   function watchBundle() {
-    buildBundle();
+   // buildBundle();
     browserSync.reload();
   }
   gulp.watch("lib/**/*.{js,html,css}").on('change', watchBundle);

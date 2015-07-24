@@ -26,7 +26,9 @@
       }
       gauges = $(".flat-gauge");
       gauges.each(function(index, g) {
-        var t = new m.flatGauge(g);
+        var config = {};
+        config.template = (index % 4) === 0 ? 'center' : 'left-align';
+        var t = new m.flatGauge(g, (index % 2) !== 0 ? 'round' : 'rect', config);
         g.gauge = t;
       })
       setInterval(function() {
