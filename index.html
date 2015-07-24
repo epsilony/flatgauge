@@ -17,20 +17,35 @@
 
 <body>
   <script>
+    'use strict';
     var m, gauges;
     System.import('lib/main').then(function(main) {
       m = main;
-      gauges = $(".flat-gauge");
-      for (var i = 0; i < 50; i++) {
-        gauges.after('<div class="flat-gauge"></div>');
+      var flatGauge = m.flatGauge;
+      var body = $('body');
+      var divTemplate = '<div class="flat-gauge"></div>';
+      var div = $(divTemplate);
+      div.appendTo(body);
+      div[0].gauge = flatGauge(div[0], 'round');
+
+      var tmps = 'center,bar,left-align'.split(/,/);
+      var heights = [200, 10];
+      for (var i = 0; i < tmps.length; i++) {
+        var tmp = tmps[i];
+        for (var j = 0; j < heights.length; j++) {
+          var valueHeight = heights[j];
+          var config = {
+            valueHeight: valueHeight,
+            template: tmp
+          };
+          div = $(divTemplate);
+          div.appendTo(body);
+          div[0].gauge = flatGauge(div[0], 'rect',config);
+        }
       }
+
       gauges = $(".flat-gauge");
-      gauges.each(function(index, g) {
-        var config = {};
-        config.template = (index % 4) === 0 ? 'center' : 'left-align';
-        var t = new m.flatGauge(g, (index % 2) !== 0 ? 'round' : 'rect', config);
-        g.gauge = t;
-      })
+
       setInterval(function() {
         gauges.each(function(index, g) {
           g.gauge.value = mathjs.randomInt(1000);
@@ -38,7 +53,6 @@
       }, 500);
     });
   </script>
-  <div class="flat-gauge"></div>
 
 </body>
 

@@ -4,24 +4,28 @@ var browserSync = require('browser-sync').create();
 var shelljs = require('shelljs');
 
 function buildBundle(){
-  shelljs.exec('jspm bundle ./lib/main dist/flatgauge.js --inject');
+  shelljs.exec('jspm bundle ./lib/main bundle/bundle.js --inject');
 }
+
+function unbundle(){
+  shelljs.exec('jspm unbundle');
+}
+
+gulp.task('unbundle',function(){
+  unbundle();
+});
 
 gulp.task('bundle', function() {
   buildBundle();
 });
 
-gulp.task('watch', function() {
+gulp.task('watch',['unbundle'], function() {
 
   browserSync.init({
     server: "."
   });
 
-  function watchBundle() {
-   // buildBundle();
-    browserSync.reload();
-  }
-  gulp.watch("lib/**/*.{js,html,css}").on('change', watchBundle);
+  gulp.watch("lib/**/*.{js,html,css}").on('change', browserSync.reload);
   gulp.watch("*.html",browserSync.reload());
 });
 
